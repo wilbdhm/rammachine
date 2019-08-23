@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Klon Maszyny Ram</title>
     <link rel="stylesheet" href="css/main.css">
+    <script src="script/logic.js" defer></script>
     <script src="script/events.js" defer></script>
 </head>
 
@@ -12,7 +13,42 @@
     <header>
         <h1>Maszyna Ram</h1>
     </header>
-    <div id="memoryTableDiv"></div>
+    <div id="memoryTableDiv">
+        <table id="memoryTable">
+            <thead>
+                <th>Adres</th>
+                <th>Wartość</th>
+            </thead>
+            <tbody id="memoryTableBody">
+            </tbody id="memoryTable">
+                <script>
+                const MEMORY_TABLE_LENGTH = 25;
+                (function() {
+                    let tbody = document.currentScript.parentNode;
+
+                    for (let i = 0; i < MEMORY_TABLE_LENGTH; ++i) {
+                        let row = document.createElement('tr'),
+                            cellIndex = document.createElement('td'),
+                            cellValue = document.createElement('td');
+                        cellIndex.innerText = i + 1;
+                        cellValue.innerText = '??';
+                        cellIndex.className = 'memoryIndexCell';
+                        cellValue.className = 'memoryValueCell';
+                        row.appendChild(cellIndex);
+                        row.appendChild(cellValue);
+                        tbody.appendChild(row);
+                    }
+                })();
+                </script>
+            <tfoot>
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <button id="scrollMemoryButton">▼</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
     <div id="programTableDiv">
         <table id="programTable">
             <thead>
@@ -25,7 +61,7 @@
             <tfoot>
                 <tr>
                     <td colspan="4" style="text-align: center">
-                        <button id="addRowButton">+</button>
+                        <button id="addProgramRowButton">+</button>
                     </td>
                 </tr>
             </tfoot>

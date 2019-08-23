@@ -1,12 +1,7 @@
-const INSTRUCTIONS = Object.freeze([
-    'load', 'store', 'read', 'write',
-    'add', 'sub', 'mult', 'div', 'mod',
-    'jump', 'jzero', 'jgtz', 'halt'
-]);
 const ACCEPTABLE_VALUE_REGEX = /^([=^]?)(-?\d+)$/g;
 const ACCEPTABLE_LABEL_REGEX = /^[\dA-Z_]+$/g;
 
-document.getElementById('addRowButton').addEventListener('click', function () {
+document.getElementById('addProgramRowButton').addEventListener('click', function () {
     let tbody = document.getElementById('programTableBody'),
         row = document.createElement('tr'),
         labelCell = document.createElement('td'),
@@ -62,4 +57,8 @@ document.getElementById('addRowButton').addEventListener('click', function () {
     row.appendChild(valueCell);
     row.appendChild(deleteCell);
     tbody.appendChild(row);
+}, false);
+
+document.getElementById('scrollMemoryButton').addEventListener('click', function() {
+
 }, false);

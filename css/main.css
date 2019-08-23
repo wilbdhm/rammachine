@@ -9,9 +9,6 @@ header {
 
 table {
     border: 1px solid black;
-}
-
-table#programTable {
     width: 100%;
 }
 
@@ -35,6 +32,10 @@ td.labelCell, td.instructionCell, td.valueCell {
 
 td.deleteCell {
     width: 2%;
+}
+
+td.memoryIndexCell, td.memoryValueCell {
+    font-size: 62.5%;
 }
 
 input.labelInput, input.valueInput, .incorrectField {
