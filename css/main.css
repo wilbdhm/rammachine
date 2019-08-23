@@ -39,7 +39,7 @@ td.memoryIndexCell, td.memoryValueCell {
 }
 
 input.labelInput, input.valueInput, .incorrectField {
-    width: 95%;
+    width: 93%;
 }
 
 select.instructionSelect {
