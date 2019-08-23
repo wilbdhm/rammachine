@@ -7,11 +7,13 @@ document.getElementById('addProgramRowButton').addEventListener('click', functio
         labelCell = document.createElement('td'),
         instructionCell = document.createElement('td'),
         valueCell = document.createElement('td'),
+        commentCell = document.createElement('td'),
         deleteCell = document.createElement('td');
 
     labelCell.className = 'labelCell';
     instructionCell.className = 'instructionCell';
     valueCell.className = 'valueCell';
+    commentCell.className = 'commentCell';
     // -----------
     let labelInput = document.createElement('input');
     labelInput.className = 'labelInput';
@@ -45,6 +47,10 @@ document.getElementById('addProgramRowButton').addEventListener('click', functio
 
     instructionCell.appendChild(instructionSelect);
     // -------------
+    let commentInput = document.createElement('input');
+    commentInput.className = 'commentInput';
+    commentCell.appendChild(commentInput);
+    // -------------
     let b = document.createElement('button');
     b.innerText = '-';
     b.addEventListener('click', function () {
@@ -55,6 +61,7 @@ document.getElementById('addProgramRowButton').addEventListener('click', functio
     row.appendChild(labelCell);
     row.appendChild(instructionCell);
     row.appendChild(valueCell);
+    row.appendChild(commentCell);
     row.appendChild(deleteCell);
     tbody.appendChild(row);
 }, false);
