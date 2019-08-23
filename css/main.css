@@ -1,0 +1,50 @@
+body {
+    font-family: monospace;
+    font-size: 20pt;
+}
+
+header {
+    text-align: center;
+}
+
+table {
+    border: 1px solid black;
+}
+
+table#programTable {
+    width: 100%;
+}
+
+div#memoryTableDiv {
+    width: 20%;
+    float: left;
+}
+
+div#programTableDiv {
+    width: 80%;
+    float: right;
+}
+
+td {
+    border: 1px solid black;
+}
+
+td.labelCell, td.instructionCell, td.valueCell {
+    width: 32.67%;
+}
+
+td.deleteCell {
+    width: 2%;
+}
+
+input.labelInput, input.valueInput, .incorrectField {
+    width: 95%;
+}
+
+select.instructionSelect {
+    width: 99%;
+}
+
+.incorrectField {
+    background-color: rgb(233, 96, 96);
+}
