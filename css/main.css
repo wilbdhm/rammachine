@@ -12,7 +12,7 @@ table {
     width: 100%;
 }
 
-div#memoryTableDiv {
+div#memoryAndCpuDiv {
     width: 20%;
     float: left;
 }
@@ -34,12 +34,16 @@ td.deleteCell {
     width: 2%;
 }
 
-td.memoryIndexCell, td.memoryValueCell {
+td.memoryIndexCell, td.memoryValueCell, div#cpuDiv {
     font-size: 62.5%;
 }
 
 input.labelInput, input.valueInput, .incorrectField {
     width: 93%;
+}
+
+#cpuInputInstruction, #cpuInputArgument {
+    width: 86%;
 }
 
 select.instructionSelect {
