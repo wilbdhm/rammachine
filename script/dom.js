@@ -1,6 +1,24 @@
 const ACCEPTABLE_VALUE_REGEX = /^([=^]?)(-?\d+)$/g;
 const ACCEPTABLE_LABEL_REGEX = /^[\dA-Z_]+$/g;
 
+function refreshMemory() {
+    let addresses = document.getElementsByClassName('memoryIndexCell'),
+        values = document.getElementsByClassName('memoryValueCell');
+
+    if (addresses.length != values.length) {
+        alert("FATAL ERROR");
+        console.error(addresses.length, values.length);
+        return;
+    }
+
+    for (let i = 0, j, m; i < MEMORY_TABLE_LENGTH; ++i) {
+        j = i + memoryScrollAmount;
+        m = memory.get(j);
+        addresses[i].innerText = j;
+        values[i].innerText = m ? m : '??';
+    }
+}
+
 document.getElementById('addProgramRowButton').addEventListener('click', function () {
     let tbody = document.getElementById('programTableBody'),
         row = document.createElement('tr'),
@@ -17,17 +35,17 @@ document.getElementById('addProgramRowButton').addEventListener('click', functio
     // -----------
     let labelInput = document.createElement('input');
     labelInput.className = 'labelInput';
-    labelInput.addEventListener('input', function() {
+    labelInput.addEventListener('input', function () {
         if (labelInput.value == '' || labelInput.value.match(ACCEPTABLE_LABEL_REGEX))
             labelInput.className = 'labelInput';
         else
             labelInput.className = 'incorrectField';
     }, false);
     labelCell.appendChild(labelInput);
-    
+
     let valueInput = document.createElement('input');
     valueInput.className = 'valueInput';
-    valueInput.addEventListener('input', function() {
+    valueInput.addEventListener('input', function () {
         if (valueInput.value == '' || valueInput.value.match(ACCEPTABLE_VALUE_REGEX))
             valueInput.className = 'valueInput';
         else
@@ -66,6 +84,19 @@ document.getElementById('addProgramRowButton').addEventListener('click', functio
     tbody.appendChild(row);
 }, false);
 
-document.getElementById('scrollMemoryButton').addEventListener('click', function() {
+document.getElementById('scrollMemoryButtonDown').addEventListener('click', function () {
+    memoryScrollAmount++;
+    refreshMemory();
+    document.getElementById('scrollMemoryButtonUp').parentNode.style.display = memoryScrollAmount > 0 ? '' : 'none';
+}, false);
 
+document.getElementById('scrollMemoryButtonUp').addEventListener('click', function (ev) {
+    memoryScrollAmount--;
+
+    if (memoryScrollAmount < 1) {
+        memoryScrollAmount = 0;
+        ev.target.parentNode.style.display = 'none';
+    }
+
+    refreshMemory();
 }, false);

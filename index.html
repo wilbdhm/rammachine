@@ -6,7 +6,7 @@
     <title>Klon Maszyny Ram</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="script/logic.js" defer></script>
-    <script src="script/events.js" defer></script>
+    <script src="script/dom.js" defer></script>
 </head>
 
 <body>
@@ -33,30 +33,36 @@
                     <th>Wartość</th>
                 </thead>
                 <tbody id="memoryTableBody">
-                </tbody id="memoryTable">
-                <script>
-                    const MEMORY_TABLE_LENGTH = 24;
-                    (function () {
-                        let tbody = document.currentScript.parentNode;
+                    <tr>
+                        <td colspan="2" style="text-align: center; display: none;">
+                            <button id="scrollMemoryButtonUp">▲</button>
+                        </td>
+                    </tr>
+                    <script>
+                        const MEMORY_TABLE_LENGTH = 21;
+                        let memoryScrollAmount = 0;
+                        (function () {
+                            let tbody = document.currentScript.parentNode;
 
-                        for (let i = 0; i < MEMORY_TABLE_LENGTH; ++i) {
-                            let row = document.createElement('tr'),
-                                cellIndex = document.createElement('td'),
-                                cellValue = document.createElement('td');
-                            cellIndex.innerText = i;
-                            cellValue.innerText = '??';
-                            cellIndex.className = 'memoryIndexCell';
-                            cellValue.className = 'memoryValueCell';
-                            row.appendChild(cellIndex);
-                            row.appendChild(cellValue);
-                            tbody.appendChild(row);
-                        }
-                    })();
-                </script>
+                            for (let i = 0; i < MEMORY_TABLE_LENGTH; ++i) {
+                                let row = document.createElement('tr'),
+                                    cellIndex = document.createElement('td'),
+                                    cellValue = document.createElement('td');
+                                cellIndex.innerText = i;
+                                cellValue.innerText = '??';
+                                cellIndex.className = 'memoryIndexCell';
+                                cellValue.className = 'memoryValueCell';
+                                row.appendChild(cellIndex);
+                                row.appendChild(cellValue);
+                                tbody.appendChild(row);
+                            }
+                        })();
+                    </script>
+                </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="2" style="text-align: center">
-                            <button id="scrollMemoryButton">▼</button>
+                            <button id="scrollMemoryButtonDown">▼</button>
                         </td>
                     </tr>
                 </tfoot>

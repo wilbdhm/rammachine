@@ -5,4 +5,3 @@ const INSTRUCTIONS = Object.freeze([
 ]);
 
 let memory = new Map();
-
