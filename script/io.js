@@ -34,7 +34,7 @@ function loadFromString(str) {
         let j = indexingTable.get(objs[i].instruction);
 
         if (j == undefined)
-            throw 'No such instruction: ' + objs[i].instruction;
+            throw 'Nieznana instrukcja: ' + objs[i].instruction;
 
         instructionSelects[i].selectedIndex = j;
         valueInputs[i].value = objs[i].argument;

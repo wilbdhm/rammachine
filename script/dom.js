@@ -100,3 +100,13 @@ document.getElementById('scrollMemoryButtonUp').addEventListener('click', functi
 
     refreshMemory();
 }, false);
+
+document.getElementById('fileReadButton').addEventListener('click', function (ev) {
+    document.getElementById('stringImportDiv').style.display = '';
+    ev.target.parentNode.parentNode.style.display = 'none';
+}, false);
+
+document.getElementById('stringImportConfirmButton').addEventListener('click', function (ev) {
+    document.getElementById('fileReadWriteDiv').style.display = '';
+    ev.target.parentNode.style.display = 'none';
+}, false);
