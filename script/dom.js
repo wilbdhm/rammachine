@@ -106,7 +106,18 @@ document.getElementById('fileReadButton').addEventListener('click', function (ev
     ev.target.parentNode.parentNode.style.display = 'none';
 }, false);
 
-document.getElementById('stringImportConfirmButton').addEventListener('click', function (ev) {
+document.getElementById('stringImportCancelButton').addEventListener('click', function (ev) {
     document.getElementById('fileReadWriteDiv').style.display = '';
     ev.target.parentNode.style.display = 'none';
+}, false);
+
+document.getElementById('stringImportConfirmButton').addEventListener('click', function (ev) {
+    try {
+        loadFromString(document.getElementById('stringImportTextarea').value);
+    }
+    catch (error) {
+        alert(error);
+        return;
+    }
+    ev.target.parentNode.children[2].click();
 }, false);
